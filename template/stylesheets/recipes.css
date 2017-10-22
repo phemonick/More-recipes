@@ -1,0 +1,135 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+body {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+.mainHeader {
+	width: 100%;
+	height: auto;
+	background-color: #daa271;
+}
+	.mainNav {
+		display: flex;
+		flex-flow: row;
+		justify-content: space-around;
+		padding-top: .5em;
+		padding-bottom: .5em;
+
+
+
+	}
+		.myHome{
+			margin-right: auto;
+		}
+	ul{
+		list-style: none;
+
+	}
+	.mainNav a{
+		text-decoration: none;
+		display: block;
+			padding: 10px 15px;
+	}
+
+.content {
+	height: auto;
+	width: 80%;
+	margin: 0 auto;
+
+
+}
+	.content h2 {
+		text-align: center;
+		padding-top: 20px;
+	}
+	.contentBody{
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+
+	}
+		.recipeItems {
+			width: 70%;
+			/*flex: 1 30%;*/
+			height: 400px;
+			margin: 10px;
+			border-radius: 10px 10px 0 0;
+			outline: none;
+		}
+		.itemContent {
+				display: flex;
+				flex-direction: column;
+				border:	1px solid #deddd8;
+
+
+			}
+		.itemContent:hover {
+		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	}
+				img{
+					height: 60%;
+					border-top-right-radius: 10px;
+					border-top-left-radius: 10px;
+				}
+				.foodD {
+					background-color: #fff;
+					height: 30%;
+					padding: 10px 15px;
+					;
+				}
+					.foodD h3 {
+						text-align: center;
+					}
+					.foodD p{
+						padding: 0 5px 5px 5px;
+					}
+				.edit {
+					/*background-color: blue;*/
+					height: 15%;
+					text-align: center;
+					padding-top: 10px;
+					border-top: 1px solid grey
+
+				}
+
+footer {
+	width: 100%;
+	background-color: #a5963f;
+	height: 50px;
+	bottom: 0;
+}
+	.footNav{
+		display: flex;
+		width: 100%;
+		flex-flow: row ;
+	}
+		.footNav a{
+			text-decoration: none;
+			padding: 10px 15px;
+		}
+		.copyR{
+			margin-right: auto;
+		}
+
+@media (min-width: 769px){
+	.contentBody{
+		display: flex;
+		flex-flow: row wrap;
+		justify-content: space-around;
+
+	}
+		.recipeItems {
+			width: 30%;
+			/*flex: 1 30%;*/
+			height: 400px;
+			margin: 10px;
+			border-radius: 10px 10px 0 0;
+			outline: none;
+		}
+}
+

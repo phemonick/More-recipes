@@ -1,0 +1,99 @@
+*{
+	margin: 0;
+	padding:0;
+	box-sizing: border-box;
+}
+body{
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	display: flex;
+	flex-direction:column;
+}
+	.mainHeader {
+		background: yellow;
+		height: auto;
+		padding-top: .5em;
+		padding-bottom: .5em;
+
+	}.navHeader, .mainNav{
+		display: flex;
+		justify-content: space-between;
+	}
+		ul{
+			list-style: none;
+		}
+		a {
+			text-decoration: none;
+			text-align: center;
+			display: block;
+			padding: 10px 15px;
+		}
+		.myHome {
+			
+		
+		}
+		.mainNav{
+			
+			
+		}
+	.content {
+		display: flex;
+		background-color: blue;
+		height: 80vh;
+		width: 80%;
+		margin: 0 auto;
+		flex-flow: row wrap;
+		justify-content: space-around;
+		
+	}
+		.contentDiv{
+			height:auto;
+			border:1px solid yellow;
+			border-radius: 10px;
+			margin: 20px;
+			width: 40%;
+		}
+			.contentH {
+
+			}
+			#basicHeader {
+				display: flex;
+				flex-direction: column;
+
+
+			}
+				.update { 
+					background: red;
+					padding: 10px;
+					border-radius: 10px 10px 0 0;
+					margin-bottom: 10px;
+					text-align: center;
+				}
+				.userForm {
+					padding: 20px;
+					width: 100%;
+				}
+				.userForm input[type="text"] {
+					text-align: center;
+					width: 80%;
+					height: 30px;
+					border: none;
+					outline: none;
+					margin: 10px 0;
+					border-radius: 10px;
+				}
+				.userForm input[type="Submit"] {
+					width: 30%;
+					border: none;
+					height: 25px;
+					border-radius: 20px;
+					margin: 10px 20px 10px 20px;
+					outline: none;
+
+
+				}
+	footer {
+		background-color: grey;
+		height: 10vh;
+	}
