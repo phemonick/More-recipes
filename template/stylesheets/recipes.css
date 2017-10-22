@@ -13,7 +13,7 @@ body {
 	height: auto;
 	background-color: #daa271;
 }
-	.mainNav {
+	.mainNav {  
 		display: flex;
 		flex-flow: row;
 		justify-content: space-around;

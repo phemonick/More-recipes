@@ -9,7 +9,7 @@ body{
 	box-sizing: border-box;
 	display: flex;
 	flex-direction:column;
-}
+}  
 	.mainHeader {
 		background: yellow;
 		height: auto;
