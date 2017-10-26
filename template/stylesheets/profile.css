@@ -11,7 +11,7 @@ body{
 	flex-direction:column;
 }  
 	.mainHeader {
-		background: #b5b586;
+		background: rgb(128, 128, 128);
 		height: auto;
 		padding-top: .5em;   
 		padding-bottom: .5em;
@@ -94,6 +94,6 @@ body{
 
 				}
 	footer {
-		background-color: grey;
+		background-color: rgb(128, 128, 128);
 		height: 10vh;
 	}
