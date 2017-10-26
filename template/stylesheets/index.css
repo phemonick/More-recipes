@@ -55,12 +55,18 @@ nav h1{
         color: #de6a01;
         border-radius: 5px;
 		outline: none;
-		border: 1px solid red;
+/*		border: 1px solid #7d9c72;*/
 	}
-.loginBtn {
-    border: 1px solid green;
+.loginBtn{
+    border: 1px solid #7d9c72;
+}
+.loginBtn2{
+    border: 1px solid red;
 }
 #contentFlex{
 	display: flex;
 	flex-direction: column;
+}
+.coverImg{
+   height: 39vh
 }
