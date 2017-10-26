@@ -30,6 +30,12 @@ class RecipeCrude{
 		res.status(200).json(recipes)
 	}
 	static updateRecipe(req,res){
+		const value = req.params.id;
+		recipes.map((recipe) => {
+			if(recipe.id == value){
+				console.log(value)
+			}
+		})
 		res.status(201).send('user updated');
 	}
 	static findRecipe(req,res){
