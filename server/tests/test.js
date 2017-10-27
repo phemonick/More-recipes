@@ -2,7 +2,7 @@
 import chai from 'chai';
 import supertest from 'supertest';
 import validateFunction from '../middleware/validate';
-import app from '../index';
+import app from '../../index';
 
 const expect = chai.expect;
 const request = supertest(app);
