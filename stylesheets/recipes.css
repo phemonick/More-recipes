@@ -12,7 +12,7 @@ body {
 .mainHeader {
 	width: 100%;
 	height: auto;
-	background-color: rgb(128, 128, 128);
+	background-color: #84705f;
 }
 	.mainNav {  
 		display: flex;
