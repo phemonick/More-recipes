@@ -13,7 +13,7 @@ body{
 */
 }  
 	.mainHeader {
-		background: rgb(128, 128, 128);
+		background: rgb(121, 95, 86);
 		height: auto;
 		padding-top: .5em;   
 		padding-bottom: .5em;
@@ -27,6 +27,7 @@ body{
 		}
 		a {
 			text-decoration: none;
+            color: burlywood;
 			text-align: center;
 			display: block;
 			padding: 10px 15px;
@@ -95,13 +96,14 @@ body{
 
 
 				}
+
 .infoDiv{
     width: 100%;
     height: 200px;
     background: #adadcc;
 }
 	footer {
-		background-color: rgb(128, 128, 128);
+		background-color: rgb(121, 95, 86);
 		height: 10vh;
 	}
 @media (min-width: 769px){
@@ -111,5 +113,14 @@ body{
     }
     .contentDiv{
         width: 50%;
+    }
+    .infoDiv{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        color: chocolate;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
     }
 }
