@@ -4,5 +4,5 @@ import recipe from './recipes';
 const router = express.Router();
 
 export default{
-    recipe,
+    recipe
 }
