@@ -1,0 +1,115 @@
+*{
+	margin: 0;
+	padding:0;
+	box-sizing: border-box;
+}
+body{
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+/*
+	display: flex;
+	flex-direction:column;
+*/
+}  
+	.mainHeader {
+		background: rgb(128, 128, 128);
+		height: auto;
+		padding-top: .5em;   
+		padding-bottom: .5em;
+
+	}.navHeader, .mainNav{
+		display: flex;
+		justify-content: space-between;
+	}
+		ul{
+			list-style: none;
+		}
+		a {
+			text-decoration: none;
+			text-align: center;
+			display: block;
+			padding: 10px 15px;
+		}
+		.myHome {
+			
+		
+		}
+		.mainNav{
+			
+			
+		}
+	.content {
+		display: flex;
+		background-color: #e4e4e8;
+		height: 80vh;
+		width: 80%;
+		margin: 0 auto;
+		flex-direction: column;
+		justify-content: space-around;
+		
+	}
+		.contentDiv{
+			height:auto;
+			/*border:1px solid yellow;*/
+			border-radius: 10px;
+			margin: 20px;
+			width: 100%;
+		}
+			.contentH {
+
+			}
+			#basicHeader {
+				display: flex;
+				flex-direction: column;
+
+
+			}
+				.update { 
+					background: #b2d0e8;
+					padding: 10px;
+					border-radius: 10px 10px 0 0;
+					margin: 10px auto;
+					text-align: center;
+				}
+				.userForm {
+					padding: 20px;
+					width: 100%;
+				}
+				.userForm input[type="text"] {
+					text-align: center;
+					width: 80%;
+					height: 30px;
+					border: none;
+					outline: none;
+					margin: 10px 0;
+					border-radius: 10px;
+				}
+				.userForm input[type="Submit"] {
+					width: 30%;
+					border: none;
+					height: 25px;
+					border-radius: 20px;
+					margin: 10px 20px 10px 20px;
+					outline: none;
+
+
+				}
+.infoDiv{
+    width: 100%;
+    height: 200px;
+    background: #adadcc;
+}
+	footer {
+		background-color: rgb(128, 128, 128);
+		height: 10vh;
+	}
+@media (min-width: 769px){
+    .content{
+        display: flex;
+        flex-direction: row;
+    }
+    .contentDiv{
+        width: 50%;
+    }
+}
