@@ -11,6 +11,7 @@ body{
   margin: 0;
   padding: 0;  
 }
+
 .nav_bar{
 	background: rgb(128, 128, 128);
 	width: 100%;
@@ -21,6 +22,9 @@ body{
     z-index: 3;
 	
 
+}
+.container label{
+    font-size: 20px;
 }
 h2{text-align: center; color:#fff;}
 .master_container{
@@ -38,10 +42,16 @@ form {
     background-color: transparent;
     width: 400px;
 }
+form p{
+    font-size: 30px;
+}
 .img{ padding-left: 100px; }
 
 h3{font-weight: 900; color:white; text-align:center; }
 b{color:white;}
+.rem{
+    font-size: 15px;
+}
 
 
 
@@ -93,3 +103,6 @@ span a{text-decoration: none;}
 
 p{text-align: center;
 color: white;}
+.rem{
+    font-size: 20px;
+}
