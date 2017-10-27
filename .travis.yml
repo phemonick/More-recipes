@@ -1,3 +1,7 @@
-language: node_js
+anguage: node_js
 node_js:
-  -"6.11.4"
+- "stable"
+
+install: npm install
+
+script: npm test
