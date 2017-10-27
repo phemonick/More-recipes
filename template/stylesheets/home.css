@@ -9,6 +9,7 @@ body{
 	/*display: flex;
 	flex-direction: column;*/
 	box-sizing: border-box;
+    color:#0a91c7;
 	/*min-height: 100vh;*/
 }
  
@@ -85,16 +86,16 @@ header nav{
 		height: 20%;
 		text-align: center;
 		outline: none;
-		color: #551a8b;
+		color: #fff;
 		font-weight: bold;
 		font-size: 30px;
 		background-color: rgba(0, 0, 0, 0.25);
 		border: 1px solid rgba(0, 0, 0, 0.25);
-		box-shadow: inset -1px 0px 1px 2px rgb(156, 115, 61), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+		box-shadow:inset -1px 0px 1px 2px rgba(164, 182, 189, 0.3), 0 6px 20px 0 rgb(156, 131, 41);
 		border-radius: 20px;
 	}
 	.recipeBackground input[type="text"]::placeholder {
-		color: #551a8b;
+		color: #c1c1c1;
 	}
 	
 /*.pageContent{
@@ -148,9 +149,10 @@ header nav{
 		}
 		.foodInfo {
 			margin: 20px 0;
+            padding-left: 5px;
 		}
 		.foodIcon {
-
+            padding: 5px
 		}
 
 #aboutUs {
@@ -168,7 +170,7 @@ header nav{
 	.aboutItem {
 		width: 50%;
 		order: -1;
-		background-color: #cbcbe8;
+		background-color: #c1c1c1;
 		padding: 30px;
 		height: auto;
 	}
