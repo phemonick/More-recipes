@@ -15,6 +15,7 @@ body{
  
 a{
 	text-decoration: none;
+    color: #f0d495;
 }
 ul{
 	margin: 0;
@@ -34,7 +35,7 @@ ul{
 	padding: 10px 15px;
 }
 	.mainNav a:hover{
-		color: grey;
+		color:aliceblue;
 	}
 header{
 	
@@ -50,19 +51,19 @@ header{
 	#topHeader div{
 		float: right;
 		margin: 10px 15px 0 0;
-		padding: 5px;
+		padding: 4px;
 		color: yellow;
-		background: blue;
+		background: #0a91c7;
 		border: none;
 		outline: none;
 	}
 header nav{
 	width: 100%;
 	height: auto;
-	background: rgb(128, 128, 128);
+	background: rgba(128, 128, 128, 0.7);
 }
 .recipeBackground{
-	background: url(../images/recipes/ingredients.jpg) no-repeat;
+	background: url(../images/recipes/spice.jpg) no-repeat;
 	background-size: cover;
 	height: 50vh;
 }
@@ -91,7 +92,7 @@ header nav{
 		font-size: 30px;
 		background-color: rgba(0, 0, 0, 0.25);
 		border: 1px solid rgba(0, 0, 0, 0.25);
-		box-shadow:inset -1px 0px 1px 2px rgba(164, 182, 189, 0.3), 0 6px 20px 0 rgb(156, 131, 41);
+		box-shadow:inset -1px 0px 1px 2px rgba(164, 182, 189, 0.3), 0 6px 20px 0 rgb(28, 24, 14);
 		border-radius: 20px;
 	}
 	.recipeBackground input[type="text"]::placeholder {
@@ -181,7 +182,7 @@ header nav{
 
 footer {
 	width: 100%;
-	background-color: rgb(128, 128, 128);
+	background-color: rgba(128, 128, 128, 0.7);
 	height: 50px;
 	bottom: 0;
 }
@@ -237,7 +238,7 @@ footer {
 .favoriteRecipes{
 		width: 30%;
 		height:200px;
-		border:1px solid blue;
+		border:1px solid #0a91c7;
 		border-radius: 10px 10px 0 0;
 		margin: 30px auto;
 
