@@ -12,7 +12,7 @@ body{
   padding: 0;  
 }
 .nav_bar{
-	background: grey;
+	background: rgb(128, 128, 128);
 	width: 100%;
 	height: auto;
 	font-weight: 900;

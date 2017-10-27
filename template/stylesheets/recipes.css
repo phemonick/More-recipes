@@ -11,7 +11,7 @@ body {
 .mainHeader {
 	width: 100%;
 	height: auto;
-	background-color: #daa271;
+	background-color: rgb(128, 128, 128);
 }
 	.mainNav {  
 		display: flex;
@@ -99,7 +99,7 @@ body {
 
 footer {
 	width: 100%;
-	background-color: #a5963f;
+	background-color: rgb(128, 128, 128);
 	height: 50px;
 	bottom: 0;
 }
