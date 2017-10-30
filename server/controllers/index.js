@@ -1,5 +1,7 @@
-import RecipeCrude from './recipesController';
+// import RecipeCrude from './recipesController';
+import UserCrude from './userController';
 
 export {
-    RecipeCrude,
+    // RecipeCrude,
+    UserCrude,
 }
