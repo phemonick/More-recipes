@@ -28,7 +28,7 @@ class UserCrude {
        .find({
         where: {
           username: req.body.username,
-          password: req.body.password,
+        //   password: req.body.password,
         },
       })
       .then(user => {
@@ -38,11 +38,19 @@ class UserCrude {
                 message: 'username Not Found',
               });
           }
+          bcrypt.compare(data, user.password)
+          .then((bool) => {
+              if (bool === true){
           return res.status(200).send({
               message: "user log in successful"
-          })
+          })}
+          return res.status(404).send({
+            message: 'password Not correct',
+        })
       })
-    }
+    })
+    .catch(error => res.status(400).send(error))
+}
     static getUser(req, res){
         return users
         .all()
