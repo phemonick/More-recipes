@@ -14,8 +14,24 @@ class UserCrude {
         .catch(error => res.status(400).send(error));
    
     }  
-    static findUser(req, res){
-        res.send('userfound')
+    static signIn(req, res){
+       return users
+       .find({
+        where: {
+          username: req.body.username,
+          password: req.body.password,
+        },
+      })
+      .then(user => {
+          if(!user){
+            return res.status(404).send({
+                message: 'username Not Found',
+              });
+          }
+          return res.status(200).send({
+              message: "user log in successful"
+          })
+      })
     }
     static getUser(req, res){
         return users
