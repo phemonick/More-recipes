@@ -1,9 +1,50 @@
 import user from '../models';
-import bcrypt from 'bcryptjs'
+import bcrypt from 'bcryptjs';
+import * as validate from '../middleware/validate'
 const users = user.User;
 
 class UserCrude {
     static createUser(req, res){
+        const name = req.body.name;
+        const username = req.body.username;
+        const password = req.body.password;
+        const email = req.body.email;
+        const surname = req.body.surname;
+
+        const validCheck = validate.check(name, username, email, password, surname);
+        if(validCheck){
+            return res.status(400).send({
+                message: validCheck,
+            })
+        }
+        // Returns one document that satisfies the specified query criteria on the collection
+        users
+            .findOne({
+                attributes: ['id', 'email', 'username'],
+            //    projection parameter
+                where: {
+                    $or: [
+                        {   
+                            username:{
+                                $ilike: username
+                            }
+                        },
+                        {
+                            email: {
+                                $ilike: email
+                            }
+                        }
+                    ]
+                }
+            })
+            .then((user) => {
+                if(user.username == username){
+                    return res.status(404).send('username taken')
+                }
+                else if(user.email == email){
+                    return res.status(404).send('email already taken')
+                }
+            });
 
         const data = req.body.password;
         bcrypt.hash(data, 10)
