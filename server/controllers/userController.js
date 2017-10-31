@@ -1,6 +1,8 @@
 import user from '../models';
 import bcrypt from 'bcryptjs';
 import * as validate from '../middleware/validate'
+import Auth from '../middleware/auth'
+import jwt from 'jsonwebtoken';
 const users = user.User;
 
 class UserCrude {
@@ -12,7 +14,7 @@ class UserCrude {
         const surname = req.body.surname;
 
         const validCheck = validate.check(name, username, email, password, surname);
-        if(validCheck){
+        if(validCheck !== ''){
             return res.status(400).send({
                 message: validCheck,
             })
@@ -20,7 +22,7 @@ class UserCrude {
         // Returns one document that satisfies the specified query criteria on the collection
         users
             .findOne({
-                attributes: ['id', 'email', 'username'],
+                attributes: [ 'email', 'username'],
             //    projection parameter
                 where: {
                     $or: [
@@ -73,7 +75,6 @@ class UserCrude {
         },
       })
       .then(user => {
-          
           if(!user){
             return res.status(404).send({
                 message: 'username Not Found',
@@ -81,9 +82,16 @@ class UserCrude {
           }
           bcrypt.compare(data, user.password)
           .then((bool) => {
-              if (bool === true){
+              if (bool){
+                const token = jwt.sign({
+                    id: user.id
+                },
+                process.env.secret,
+                    { expiresIn: Math.floor(Date.now() / 1000) + (60 * 60)}
+                );
           return res.status(200).send({
-              message: "user log in successful"
+              message: "user log in successful",
+              token
           })}
           return res.status(404).send({
             message: 'password Not correct',

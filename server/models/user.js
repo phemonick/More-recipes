@@ -1,6 +1,6 @@
 
 export default (sequelize, DataTypes) => {
-  var User = sequelize.define('User', {
+  const User = sequelize.define('User', {
 
     username: {
       type: DataTypes.STRING,
@@ -10,6 +10,10 @@ export default (sequelize, DataTypes) => {
         notEmpty: {
           args: true,
           msg: "input username"
+        },
+        isAlphanumeric: {
+          args: true,
+          msg: "must be alphanumeric"
         }
       }
     },
@@ -20,6 +24,10 @@ export default (sequelize, DataTypes) => {
         notEmpty: {
           args: true,
           msg: "input name"
+        },
+        isAlphanumeric: {
+          args: true,
+          msg: "must be alphanumeric"
         }
       }
     },
@@ -30,6 +38,10 @@ export default (sequelize, DataTypes) => {
         notEmpty: {
           args: true,
           msg: "input surname"
+        },
+        isAlphanumeric: {
+          args: true,
+          msg: "must be alphanumeric"
         }
       }
     },
@@ -53,12 +65,12 @@ export default (sequelize, DataTypes) => {
         }
       }
     },
-  }, {
-    classMethods: {
-      associate: function(models) {
-        // associations can be defined here
-      }
-    }
   });
+  User.associate = (models) => {
+    Todo.hasMany(models.Recipes, {
+      foreignKey: 'userId',
+      as: 'recipes',
+    });
+  };
   return User;
 };
