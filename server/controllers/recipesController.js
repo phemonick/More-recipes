@@ -60,6 +60,33 @@ class RecipeCrude {
             res.status(401).send(err)
         })
     }
+    static deleteRecipes(req, res){
+        const recipeId = req.params.recipeId;
+        const userId = req.user.id;
+
+        recipes
+        .findById(recipeId)
+        .then((recipe) => {
+            if(!recipe) {
+                return res.status(404).send('no recipe for the specified ID')
+            }
+            if(recipe.userId !== userId) {
+                return res.status(401).send('you cant delete a recipe u didnt create')
+            }
+        });
+        recipes.destroy({
+            where: {
+                id: recipeId
+            },
+        })
+        .then((recipe) => {
+            res.status(200).json({
+                message: "recipe deleted",
+                result: recipe
+            })
+        })
+        .catch((err) => res.status(500).send(err))
+    }
 }
 
 export default RecipeCrude;
