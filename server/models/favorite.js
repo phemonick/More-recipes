@@ -1,6 +1,6 @@
-'use strict';
-module.exports = (sequelize, DataTypes) => {
-  var Favorite = sequelize.define('Favorite', {
+
+export default (sequelize, DataTypes) => {
+  const Favorite = sequelize.define('Favorite', {
     content: {
       type:  DataTypes.STRING,
     },
@@ -24,7 +24,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   }, );
   Favorite.associate = (models) => {
-    Favorite.belongsTo(models.Recipe, {
+    Favorite.belongsTo(models.Recipes, {
       foreignKey: 'recipeId',
       onDelete: 'CASCADE'
     });

@@ -1,75 +1,65 @@
-// import recipe from '../models/recipe'
-// let recipes=recipe.recipes;
+import recipe from '../models';
+import bcrypt from 'bcryptjs';
+import * as validate from '../middleware/validate'
+import Auth from '../middleware/auth'
+import jwt from 'jsonwebtoken';
 
-// class RecipeCrude{
+const recipes = recipe.Recipes;
 
-//    static	createRecipe(req,res){
-// 	   recipes.push({
-// 		   "name": req.body.name,
-// 		   "id": req.body.id,
-// 		   "recipe_details": req.body.recipe_details,
+class RecipeCrude {
+    static createRecipe(req, res){
+        const { name ,description, ingredients, viewCount} = req.body;
+        recipes.create({
+           name : req.body.name,
+           description : req.body.description,
+           ingredients : req.body.ingredients,
+           viewCount : req.body.viewCount,
+           userId: req.id,
+        })
+        .then((recipe) => {
+            res.status(200).send(recipe)
+        })
+        .catch((err) => res.status(500).send(err))
+    }
 
-// 	   })
+    static readRecipe(req, res){
+        res.send('working');
+    }
+    static updateRecipe(req, res){
+        const userId = req.user.id;
+        const id = req.params.id;
+        const { description, ingredients, name, direction} = req.body;
+        
+        recipes
+        .findById(id)
+        .then((recipe) => {
+            if(!recipe){
+                return res.status(404).send('no recipe with given id')
+            }
+            if(recipe.userId !== userId) {
+                return res.status(401).send('you cant modify a recipe u didnt create')
+            }
 
-// 	res.status(200).send(recipes);
+            recipes
+            .update({
+                name,
+                description,
+                ingredients,
+                direction
+            },{
+                where: {
+                    id: id
+                }
+            }
+        )
+        .then((recipe) => {
+            res.status(200).send(recipe);
+        })
+        })
+        .catch((err) =>{
+            res.status(401).send(err)
+        })
+    }
+}
 
-// 	}
-
-// 	static readRecipes(req,res){
-// 		res.status(200).json(recipes);
-// 	}
-
-// 	static deleteRecipe(req,res){
-// 		const value = req.params.id;
-// 		// recipes.map((recipe) => {
-// 		// 	if(recipe.id == value){
-// 		// 		let arr = indexOf(recipe);
-// 		// 		recipes.splice(arr,1);
-// 		// 	}
-// 		// })
-// 		for(let key=0; key<recipes.length; key++){
-// 			if(recipes[key].id === value){
-// 				recipes.splice(key,1);
-// 			}
-// 		}
-// 		res.status(200).json(recipes)
-// 	}
-// 	static updateRecipe(req,res){
-// 		const value = req.params.recipeId;
-// 		recipes.map((recipe) => {
-// 			if(recipe.id == value){
-// 				recipe.name=req.body.name;
-// 				recipe.recipe_details=req.body.recipe_details;
-// 				recipe.id=req.body.id;
-// 			}
-// 		})
-// 		res.status(201).send(recipes);
-// 	}
-// 	static findRecipe(req,res){
-// 		res.status(201).send('user found');
-// 	}
-// 	static postReviews(req,res){
-// 		const value = req.params.recipeId;
-// 		recipes.map((recipe) => {
-// 			if(recipe.id == value){
-// 				recipe.reviews=req.body.reviews;
-// 			}
-// 		})
-// 		res.status(201).send(recipes);
-// 	}
-// 	static highVote(req,res){
-// 		let max=0;
-// 		let display= {};
-// 		recipes.map((recipe) => {
-// 			if((recipe.vote.upvote) > (max)){
-
-// 				max = recipe.vote.upvote;
-// 				display=recipe;
-// 			}
-
-// 		})
-// 		res.status(201).json(display);
-// 	}
-
-// }
-// export default RecipeCrude;
+export default RecipeCrude;

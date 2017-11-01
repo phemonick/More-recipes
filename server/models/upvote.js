@@ -1,6 +1,6 @@
-'use strict';
-module.exports = (sequelize, DataTypes) => {
-  var upvote = sequelize.define('upvote', {
+
+export default (sequelize, DataTypes) => {
+  const Upvote = sequelize.define('Upvote', {
     vote: {
       type:DataTypes.INTEGER,
       defaultValue: 0,
@@ -24,13 +24,14 @@ module.exports = (sequelize, DataTypes) => {
     }
   } );
   Upvote.associate = (models) => {
-    Upvote.belongsTo(models.Recipe, {
+    Upvote.belongsTo(models.Recipes, {
       foreignKey: 'recipeId',
       onDelete: 'CASCADE'
     });
     Upvote.belongsTo(models.User, {
       foreignKey: 'userId',
+      onDelete: 'CASCADE'
     });
   };
-  return Downvote;
+  return Upvote;
 };

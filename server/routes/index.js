@@ -1,10 +1,8 @@
 import express from 'express';
-// import recipe from './recipes';
-import user from './user'
-
-const router = express.Router();
+import recipeRouter from './recipes';
+import userRouter from './user'
 
 export default{
-    user
-    // recipe,
+    userRouter,
+    recipeRouter
 }

@@ -7,7 +7,7 @@ const users = user.User;
 
 class UserCrude {
     static createUser(req, res){
-        const name = req.body.name;
+        const name = req.body.name; 
         const username = req.body.username;
         const password = req.body.password;
         const email = req.body.email;

@@ -67,7 +67,7 @@ export default (sequelize, DataTypes) => {
     },
   });
   User.associate = (models) => {
-    Todo.hasMany(models.Recipes, {
+    User.hasMany(models.Recipes, {
       foreignKey: 'userId',
       as: 'recipes',
     });

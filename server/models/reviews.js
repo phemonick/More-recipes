@@ -1,6 +1,6 @@
-'use strict';
-module.exports = (sequelize, DataTypes) => {
-  var Reviews = sequelize.define('Reviews', {
+
+export default (sequelize, DataTypes) => {
+  const Review = sequelize.define('Review', {
     content: DataTypes.STRING,
 
     recipeId: {
@@ -22,15 +22,15 @@ module.exports = (sequelize, DataTypes) => {
       }
     }
   }, );
-  Reviews.associate = (models) => {
-    Reviews.belongsTo(models.Recipe, {
+  Review.associate = (models) => {
+    Review.belongsTo(models.Recipes, {
       foreignKey: 'recipeId',
       onDelete: 'CASCADE'
     });
-    Reviews.belongsTo(models.User, {
+    Review.belongsTo(models.User, {
       foreignKey: 'userId',
       onDelete: 'CASCADE'
     });
   };
-  return Reviews;
+  return Review;
 };

@@ -6,7 +6,7 @@ export default class Auth {
         
   
     static verifyToken(req, res, next){
-        const token = req.body.token  || req.query.token || req.headers['x-access-token'];
+        const token = req.body.token || req.query.token || req.headers['x-access-token'];
         if(token){
             const secret = process.env.secret;
             jwt.verify(token, secret, (err, data) =>{

@@ -1,6 +1,6 @@
-'use strict';
+
 export default (sequelize, DataTypes) => {
-  var Downvote = sequelize.define('Downvote', {
+  const Downvote = sequelize.define('Downvote', {
     vote: {
       type:DataTypes.INTEGER,
       defaultValue: 0,
@@ -24,7 +24,7 @@ export default (sequelize, DataTypes) => {
     }
   } );
   Downvote.associate = (models) => {
-    Downvote.belongsTo(models.Recipe, {
+    Downvote.belongsTo(models.Recipes, {
       foreignKey: 'recipeId',
       onDelete: 'CASCADE'
     });
