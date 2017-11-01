@@ -1,12 +1,22 @@
-import recipe from '../models';
+import models from '../models';
 import bcrypt from 'bcryptjs';
 import * as validate from '../middleware/validate'
 import Auth from '../middleware/auth'
 import jwt from 'jsonwebtoken';
 
-const recipes = recipe.Recipes;
+const recipes = models.Recipes;
 
 class RecipeCrude {
+    static getAllRecipe(req, res){
+        recipes.findAll()
+        .then((allRecipes) => {
+            if (!allRecipes){
+                return res.status(404).send('no recipes found')
+            }
+            return res.status(200).send(allRecipes)
+
+        })
+    }
     static createRecipe(req, res){
         const { name ,description, ingredients, viewCount} = req.body;
         recipes.create({
@@ -22,12 +32,14 @@ class RecipeCrude {
         .catch((err) => res.status(500).send(err))
     }
 
-    static getRecipes(req, res){
+    static getRecipe(req, res){
         const recipeId = req.params.recipeId;
 
         recipes
         .findById(req.params.recipeId, {
-            include: [{ model: models.User, attributes: ['id'] }],
+            include: [
+                { model: models.User, attributes: ['id'] 
+            }]
           })
           .then((recipe) => {
               if (!recipe) {
