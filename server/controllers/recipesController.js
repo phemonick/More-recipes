@@ -10,11 +10,11 @@ class RecipeCrude {
     static createRecipe(req, res){
         const { name ,description, ingredients, viewCount} = req.body;
         recipes.create({
-           name : req.body.name,
-           description : req.body.description,
-           ingredients : req.body.ingredients,
-           viewCount : req.body.viewCount,
-           userId: req.id,
+           name ,
+           description,
+           ingredients,
+           viewCount,
+           userId: req.user.id
         })
         .then((recipe) => {
             res.status(200).send(recipe)
@@ -22,12 +22,32 @@ class RecipeCrude {
         .catch((err) => res.status(500).send(err))
     }
 
-    static readRecipe(req, res){
-        res.send('working');
+    static getRecipes(req, res){
+        const recipeId = req.params.recipeId;
+
+        recipes
+        .findById(req.params.recipeId, {
+            include: [{ model: models.User, attributes: ['id'] }],
+          })
+          .then((recipe) => {
+              if (!recipe) {
+                  return res.status(404).json({
+                      message: " recipe not found"
+                  })
+              }
+              res.status(200).json({recipe})
+          })
+          .catch((err) => res.status(500).json({
+            message: 'Unable to fetch recipes',
+            error: err
+          }));
+   
+    
+    
     }
     static updateRecipe(req, res){
         const userId = req.user.id;
-        const id = req.params.id;
+        const id = req.params.recipeId;
         const { description, ingredients, name, direction} = req.body;
         
         recipes
@@ -48,12 +68,15 @@ class RecipeCrude {
                 direction
             },{
                 where: {
-                    id: id
+                    id: id,
                 }
             }
         )
         .then((recipe) => {
-            res.status(200).send(recipe);
+            res.status(200).json({
+                message: "success",
+                result: recipe
+            });
         })
         })
         .catch((err) =>{

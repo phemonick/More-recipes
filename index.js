@@ -16,7 +16,17 @@ const userRoute = route.userRouter;
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
-app.use(expressJwt({secret:process.env.SECRET}).unless({path:['/api/v1/users/signup','/api/v1/users/signin']}))
+app.use(expressJwt({secret:process.env.SECRET}).unless({path:['/api/v1/users/signup','/api/v1/users/signin']}));
+
+app.use((err, req, res, next) => {
+    if(err.name === 'UnauthorizedError') {
+        res.status(401).send({
+            error: 'you are not signed in or invalid token',
+        });
+    }else{
+        next();
+    }
+})
 app.use(recipeRoute);
 app.use(userRoute);
 
