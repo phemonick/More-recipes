@@ -1,5 +1,5 @@
 import express from 'express';
-import {RecipeCrude} from '../controllers';
+import {RecipeCrude, Review} from '../controllers';
 import Auth from '../middleware/auth'
 
 
@@ -13,7 +13,7 @@ recipeRouter.delete('/api/v1/recipes/:recipeId', RecipeCrude.deleteRecipes);
 recipeRouter.put('/api/v1/recipes/:recipeId', RecipeCrude.updateRecipe);
 recipeRouter.get('/api/v1/:recipeId',RecipeCrude.getRecipe);
 recipeRouter.get('/api/v1/recipes', RecipeCrude.getAllRecipe);
-recipeRouter.post('/api/v1/recipes/recipeId/reviews', RecipeCrude.postReview);
+recipeRouter.post('/api/v1/recipes/recipeId/reviews', Review.postReview);
 // router.get('/api/v1/recipes/vote', RecipeCrude.highVote);
 
 export default recipeRouter;
