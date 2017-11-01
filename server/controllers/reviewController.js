@@ -2,7 +2,7 @@ import models from '../models';
 import * as validate from '../middleware/validate';
 
 const review = models.Review;
-const recipes = models.recipes;
+const recipes = models.Recipes;
 
 class Review {
 
