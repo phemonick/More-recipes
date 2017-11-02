@@ -5,8 +5,6 @@ import server from '../../index';
 
 chai.use(chaiHttp);
 
-let token,
-  userId;
 
 describe('/POST User Sign Up validation Test', () => {
   it('should return \'Password must be at least 5 characters!\'', (done) => {
@@ -167,6 +165,7 @@ describe('/POST User Sign Up validation Test', () => {
       .set('Accept', 'application/json')
       .send({
         name: 'kayoler',
+        surname: 'olartvdch',
         email: 'kayoler@gmail.com',
         username: 'kayorrr',
         password: '',
@@ -174,8 +173,9 @@ describe('/POST User Sign Up validation Test', () => {
       .end((err, res) => {
         expect(res.statusCode).to.equal(400);
         expect(res.body).deep.equal({
-          success: false,
-          message: 'Password must be at least 6 characters!',
+          message: {
+            message: 'Password must be at least 5 characters',
+          },
         });
         done();
       });
