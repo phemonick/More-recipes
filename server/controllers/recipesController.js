@@ -21,17 +21,21 @@ class RecipeCrude {
     const {
       name, description, ingredients, viewCount,
     } = req.body;
+    if (!req.user.id) {
+      return res.status(404).send('no user token');
+    }
     recipes.create({
       name,
       description,
       ingredients,
       viewCount,
       userId: req.user.id,
-    })   
+    })
       .then((recipe) => {
         res.status(200).send(recipe);
       })
       .catch(err => res.status(500).send(err));
+    return this;
   }
 
   static getRecipe(req, res) {
@@ -56,7 +60,7 @@ class RecipeCrude {
         error: err,
       }));
 
-
+    return this;
   }
   static updateRecipe(req, res) {
     const userId = req.user.id;
