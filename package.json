@@ -1,6 +1,9 @@
 {
   "name": "more-recipes",
   "version": "1.0.0",
+  "engine": {
+    "node": "6.11.4"
+  },
   "description": "creating a more-recipes site",
   "main": "index.js",
   "scripts": {
