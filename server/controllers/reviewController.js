@@ -1,17 +1,16 @@
 import models from '../models';
-import * as validate from '../middleware/validate';
+import * as validates from '../middleware/validate';
 
 const review = models.Review;
 const recipes = models.Recipes;
 
 class Review {
-
   static postReview(req, res) {
     const userId = req.user.id;
-    const recipeId = req.params.recipeId;
-    const content = req.body.content;
+    const { recipeId } = req.params;
+    const { content } = req.body;
 
-    const validate = validate.validateUserId
+    const validate = validates.validateUserId;
 
     review.create({
       userId,
@@ -25,7 +24,6 @@ class Review {
       .catch(err => res.status(500).json({
         message: err,
       }));
-
   }
 }
 export default Review;
