@@ -7,7 +7,7 @@ class Vote {
 
   static upvote(req, res) {
     const userId = req.user.id;
-    const recipeId = req.params.recipeId;
+    const { recipeId } = req.params;
     vote
       .findOrCreate({
         where: { userId, recipeId },
@@ -15,7 +15,7 @@ class Vote {
       })
       // spread firs input is the object, and boolean value
       .spread((createdVote, created) => {
-        console.log(createdVote);
+        // console.log(createdVote);
         if (created) {
           recipe
             .findOne({
@@ -72,7 +72,7 @@ class Vote {
   static downvote(req, res) {
     vote.findOrCreate({
       where: {
-        userId: req.decoded.user.id,
+        userId: req.user.id,
         recipeId: req.params.recipeId 
 },
       defaults: { options: false },
@@ -127,6 +127,9 @@ class Vote {
         }
       })
       .catch(error => res.status(400).send(error));
+  }
+  static highestVote(req, res){
+
   }
 }
 export default Vote;
