@@ -17,14 +17,7 @@
   "author": "oluwafemi",
   "license": "ISC",
   "devDependencies": {
-    "babel-core": "^6.26.0",
-    "babel-loader": "^7.1.2",
-    "babel-register": "^6.26.0",
-    "babel-watch": "^2.0.7",
-    "eslint-config-airbnb": "^16.1.0",
-    "eslint-plugin-import": "^2.8.0",
-    "eslint-plugin-jsx-a11y": "^6.0.2",
-    "eslint-plugin-react": "^7.4.0"
+    
   },
   "dependencies": {
     "babel-cli": "^6.26.0",
@@ -46,7 +39,15 @@
     "pg-hstore": "^2.3.2",
     "sequelize": "^4.20.1",
     "sequelize-cli": "^3.0.0",
-    "supertest": "^3.0.0"
+    "supertest": "^3.0.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-register": "^6.26.0",
+    "babel-watch": "^2.0.7",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-plugin-react": "^7.4.0"
   }
 }
 
