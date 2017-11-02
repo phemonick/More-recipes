@@ -4,10 +4,11 @@
   "description": "creating a more-recipes site",
   "main": "index.js",
   "scripts": {
-    "build": "babel ./server/ -d ",
-    "migrate": "sequelize db:migrate",
-    "unmigrate": "sequelize db:migrate:undo:all",
-    "start": "babel-node ./server/bin/www",
+    "build": "node ./node_modules/babel-cli/bin/babel.js ./server/ -d  dist",
+    "migrate": "node ./node_modules/sequelize-cli/lib/sequelize db:migrate",
+    "unmigrate": "node ./node_modules/sequelize-cli/lib/sequelize db:migrate:undo:all",
+    "heroku-postbuild": "npm run build && npm run migrate",
+    "start": "node ./dist/index.js",
     "test": "npm run unmigrate && npm run migrate && mocha --compilers js:babel-core/register server/tests/ --timeout 10000"
   },
   "author": "oluwafemi",
@@ -29,6 +30,7 @@
     "body-parser": "^1.18.2",
     "chai": "^4.1.2",
     "chai-http": "^3.0.0",
+    "coveralls": "^3.0.0",
     "dotenv": "^4.0.0",
     "eslint": "^4.10.0",
     "eslint-config-recommended": "^1.5.0",
