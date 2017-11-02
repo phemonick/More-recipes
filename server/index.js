@@ -23,3 +23,7 @@ app.set('port', port);
 
 app.listen(port);
 
+const server = app;
+
+export default server;
+
