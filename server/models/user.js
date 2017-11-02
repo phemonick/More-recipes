@@ -68,7 +68,7 @@ export default (sequelize, DataTypes) => {
       validate: {
         len: {
           args:[3],
-          msg: 'input valid username'
+          msg: 'input valid password'
         },
         notEmpty: {
           args: true,
