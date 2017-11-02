@@ -2,25 +2,21 @@
 
 module.exports = {
   development: {
-    username: 'postgres',
-    'password': 'teleios',
-    'database': 'more-recipes',
+    username: 'root',
+    password: null,
+    database: 'database_development',
     host: '127.0.0.1',
-    dialect: 'postgres'
+    dialect: 'mysql'
   },
   test: {
-    username: 'postgres',
-    password: 'teleios',
-    database: 'more-recipes_test',
-    'host': '127.0.0.1',
-    dialect: 'postgres',
-    'logging': false
-  },
-  'production': {
     username: 'root',
-    'password': null,
-    database: 'database_production',
-    'host': '127.0.0.1',
-    'dialect': 'postgres'
+    password: null,
+    database: 'database_test',
+    host: '127.0.0.1',
+    dialect: 'mysql'
+  },
+  production: {
+    use_env_variable: process.env.DATABASE_URL,
+    dialect: 'postgres'
   }
 };

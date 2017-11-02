@@ -1,5 +1,9 @@
 'use strict';
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
 var _express = require('express');
 
 var _express2 = _interopRequireDefault(_express);
@@ -43,3 +47,7 @@ var port = parseInt(process.env.PORT, 10) || 3000;
 app.set('port', port);
 
 app.listen(port);
+
+var server = app;
+
+exports.default = server;
