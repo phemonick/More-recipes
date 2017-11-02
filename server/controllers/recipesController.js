@@ -6,7 +6,7 @@ import jwt from 'jsonwebtoken';
 
 const recipes = models.Recipes;
 
-class RecipeCrude {
+class RecipeController {
   static getAllRecipe(req, res) {
     recipes.findAll()
       .then((allRecipes) => {
@@ -14,7 +14,6 @@ class RecipeCrude {
           return res.status(404).send('no recipes found');
         }
         return res.status(200).send(allRecipes);
-
       });
   }
   static createRecipe(req, res) {
@@ -131,4 +130,4 @@ class RecipeCrude {
   }
 }
 
-export default RecipeCrude;
+export default RecipeController;

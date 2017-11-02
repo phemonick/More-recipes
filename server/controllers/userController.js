@@ -1,12 +1,13 @@
-import user from '../models';
 import bcrypt from 'bcryptjs';
+import jwt from 'jsonwebtoken';
+import user from '../models';
 import * as validate from '../middleware/validate';
 import Auth from '../middleware/auth';
-import jwt from 'jsonwebtoken';
+
 
 const users = user.User;
 
-class UserCrude {// crude operatuons
+class UserController {// crude operatuons
   static createUser(req, res) {
     const name = req.body.name;
     const username = req.body.username;
@@ -40,11 +41,11 @@ class UserCrude {// crude operatuons
           ],
         },
       })
-      .then((user) => {
-        if (user.username == username) {
+      .then((userfound) => {
+        if (userfound.username == username) {
           return res.status(404).send('username taken');
         }
-        else if (user.email == email) {
+        else if (userfound.email == email) {
           return res.status(404).send('email already taken');
         }
       });
@@ -109,12 +110,6 @@ class UserCrude {// crude operatuons
       .all()
       .then(user => res.status(201).send(user));
   }
-  static updateUser(req, res) {
-
-  }
-  static deleteUser(req, res) {
-
-  }
 }
 
-export default UserCrude;
+export default UserController;

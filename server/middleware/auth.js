@@ -16,13 +16,12 @@ export default class Auth {
           });
         }
         req.user = data;
-        return next();
+        next();
+      });
+    } else {
+      return res.status(404).json({
+        message: 'no token yet',
       });
     }
-    return res.status(404).json({
-      message: 'no token yet',
-    });
-
-
   }
 }
