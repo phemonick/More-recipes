@@ -11,7 +11,7 @@ class Vote {
     vote
       .findOrCreate({
         where: { userId, recipeId },
-        defaults: { option: true },
+        defaults: { options: true },
       })
       // spread firs input is the object, and boolean value
       .spread((createdVote, created) => {
@@ -34,8 +34,8 @@ class Vote {
               });
             });
 
-        } else if (!created && createdVote.option === false) {
-          created.update({ option: true });
+        } else if (!created && createdVote.options === false) {
+          created.update({ options: true });
           return recipe
             .findOne({ where: { id: req.params.recipeId } })
             .then((recipe) => {
@@ -50,7 +50,7 @@ class Vote {
                 }));
               });
             });
-        } else if (!created && createdVote.option === true) {
+        } else if (!created && createdVote.options === true) {
           vote.destroy();
           return recipe
             .findOne({ where: { id: req.params.recipeId } })
@@ -75,7 +75,7 @@ class Vote {
         userId: req.decoded.user.id,
         recipeId: req.params.recipeId 
 },
-      defaults: { option: false },
+      defaults: { options: false },
     })
       .spread((voter, created) => {
       // If created perform downvote action
@@ -94,8 +94,8 @@ class Vote {
                 }));
               });
             });
-        } else if (!created && voter.option === true) {
-          voter.update({ option: false });
+        } else if (!created && voter.options === true) {
+          voter.update({ options: false });
           return recipe
             .findOne({ where: { id: req.params.recipeId } })
             .then((result) => {
@@ -110,7 +110,7 @@ class Vote {
                 }));
               });
             });
-        } else if (!created && voter.option === false) {
+        } else if (!created && voter.options === false) {
           vote.destroy();
           return recipe
             .findOne({ where: { id: req.params.recipeId } })

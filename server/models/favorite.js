@@ -1,8 +1,7 @@
-
 export default (sequelize, DataTypes) => {
   const Favorite = sequelize.define('Favorite', {
     content: {
-      type:  DataTypes.STRING,
+      type: DataTypes.STRING,
     },
     recipeId: {
       type: DataTypes.INTEGER,
@@ -11,7 +10,7 @@ export default (sequelize, DataTypes) => {
         model: 'Recipes',
         key: 'id',
         as: 'recipeId',
-      }
+      },
     },
     userId: {
       type: DataTypes.INTEGER,
@@ -20,17 +19,17 @@ export default (sequelize, DataTypes) => {
         model: 'Users',
         key: 'id',
         as: 'userId',
-      }
-    }
-  }, );
+      },
+    },
+  });
   Favorite.associate = (models) => {
     Favorite.belongsTo(models.Recipes, {
       foreignKey: 'recipeId',
-      onDelete: 'CASCADE'
+      onDelete: 'CASCADE',
     });
     Favorite.belongsTo(models.User, {
       foreignKey: 'userId',
-      onDelete: 'CASCADE'
+      onDelete: 'CASCADE',
     });
   };
   return Favorite;

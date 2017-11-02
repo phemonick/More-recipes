@@ -1,4 +1,3 @@
-
 export default (sequelize, DataTypes) => {
   const Review = sequelize.define('Review', {
     content: DataTypes.STRING,
@@ -10,7 +9,7 @@ export default (sequelize, DataTypes) => {
         model: 'Recipes',
         key: 'id',
         as: 'recipeId',
-      }
+      },
     },
     userId: {
       type: DataTypes.INTEGER,
@@ -19,17 +18,17 @@ export default (sequelize, DataTypes) => {
         model: 'Users',
         key: 'id',
         as: 'userId',
-      }
-    }
-  }, );
+      },
+    },
+  });
   Review.associate = (models) => {
     Review.belongsTo(models.Recipes, {
       foreignKey: 'recipeId',
-      onDelete: 'CASCADE'
+      onDelete: 'CASCADE',
     });
     Review.belongsTo(models.User, {
       foreignKey: 'userId',
-      onDelete: 'CASCADE'
+      onDelete: 'CASCADE',
     });
   };
   return Review;

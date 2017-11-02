@@ -1,4 +1,3 @@
-
 export default (sequelize, DataTypes) => {
   const User = sequelize.define('User', {
 
@@ -9,13 +8,17 @@ export default (sequelize, DataTypes) => {
       validate: {
         notEmpty: {
           args: true,
-          msg: "input username"
+          msg: 'input username',
+        },
+        len: {
+          args:[3],
+          msg: 'input valid username'
         },
         isAlphanumeric: {
           args: true,
-          msg: "must be alphanumeric"
-        }
-      }
+          msg: 'must be alphanumeric',
+        },
+      },
     },
     name: {
       type: DataTypes.STRING,
@@ -23,13 +26,17 @@ export default (sequelize, DataTypes) => {
       validate: {
         notEmpty: {
           args: true,
-          msg: "input name"
+          msg: 'input name',
+        },
+        len: {
+          args:[3],
+          msg: 'input valid username'
         },
         isAlphanumeric: {
           args: true,
-          msg: "must be alphanumeric"
-        }
-      }
+          msg: 'must be alphanumeric',
+        },
+      },
     },
     surname: {
       type: DataTypes.STRING,
@@ -37,13 +44,13 @@ export default (sequelize, DataTypes) => {
       validate: {
         notEmpty: {
           args: true,
-          msg: "input surname"
+          msg: 'input surname',
         },
         isAlphanumeric: {
           args: true,
-          msg: "must be alphanumeric"
-        }
-      }
+          msg: 'must be alphanumeric',
+        },
+      },
     },
     email: {
       type: DataTypes.STRING,
@@ -51,22 +58,29 @@ export default (sequelize, DataTypes) => {
       validate: {
         notEmpty: {
           args: true,
-          msg: "input email"
-        }
-      }
+          msg: 'input email',
+        },
+      },
     },
     password: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
+        len: {
+          args:[3],
+          msg: 'input valid username'
+        },
         notEmpty: {
           args: true,
-          msg: "input password"
-        }
-      }
+          msg: 'input password',
+        },
+      },
     },
   });
   User.associate = (models) => {
+    User.hasMany(models.Vote, {
+      foreignKey: 'userId',
+    });
     User.hasMany(models.Recipes, {
       foreignKey: 'userId',
       as: 'recipes',

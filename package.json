@@ -4,8 +4,10 @@
   "description": "creating a more-recipes site",
   "main": "index.js",
   "scripts": {
+    "migrate": "sequelize db:migrate",
+    "unmigrate": "sequelize db:migrate:undo:all",
     "start": "babel-node ./server/bin/www",
-    "test": "mocha --compilers js:babel-core/register server/tests/test.js --timeout 10000"
+    "test": "npm run unmigrate && npm run migrate && mocha --compilers js:babel-core/register server/tests/ --timeout 10000"
   },
   "author": "oluwafemi",
   "license": "ISC",
@@ -24,10 +26,15 @@
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.2",
+    "chai": "^4.1.2",
+    "chai-http": "^3.0.0",
     "dotenv": "^4.0.0",
+    "eslint": "^4.10.0",
+    "eslint-config-recommended": "^1.5.0",
     "express": "^4.16.2",
     "express-jwt": "^5.3.0",
     "jsonwebtoken": "^8.1.0",
+    "mocha": "^4.0.1",
     "morgan": "^1.9.0",
     "pg": "^6.4.2",
     "pg-hstore": "^2.3.2",

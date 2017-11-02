@@ -1,4 +1,3 @@
-
 export default (sequelize, DataTypes) => {
   const Recipes = sequelize.define('Recipes', {
     name: {
@@ -7,13 +6,13 @@ export default (sequelize, DataTypes) => {
       validate: {
         notEmpty: {
           args: true,
-          msg: "input name"
+          msg: 'input name',
         },
         isAlphanumeric: {
           args: true,
-          msg: "must be alphanumeric"
-        }
-      }
+          msg: 'must be alphanumeric',
+        },
+      },
     },
     description: {
       type: DataTypes.STRING,
@@ -21,19 +20,27 @@ export default (sequelize, DataTypes) => {
       validate: {
         notEmpty: {
           args: true,
-          msg: "input descriptions"
+          msg: 'input descriptions',
         },
-      }
+      },
     },
-    ingredients:{
+    ingredients: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
         notEmpty: {
           args: true,
-          msg: "input ingredients"
+          msg: 'input ingredients',
         },
-      }
+      },
+    },
+    upVote: {
+      type: DataTypes.INTEGER,
+      defaultValue: 0,
+    },
+    downVote: {
+      type: DataTypes.INTEGER,
+      defaultValue: 0,
     },
     viewCount: {
       type: DataTypes.INTEGER,
@@ -41,30 +48,28 @@ export default (sequelize, DataTypes) => {
     },
     userId: {
       type: DataTypes.INTEGER,
-        references: {
-          model:'users',
-          key: 'id',
-          as: 'userId'
-        }
+      references: {
+        model: 'users',
+        key: 'id',
+        as: 'userId',
+      },
     },
   });
-    Recipes.associate = (models) => {
-      Recipes.belongsTo(models.User, {
-        foreignKey: 'userId',
-      });
-      Recipes.hasMany(models.Review, {
-        foreignKey: 'recipeId'
-      });
-      Recipes.hasMany(models.Favorite, {
-        foreignKey: 'recipeId'
-      });
-      Recipes.hasMany(models.Upvote, {
-        foreignKey: 'recipeId'
-      });
-      Recipes.hasMany(models.Downvote, {
-        foreignKey: 'recipeId'
-      });
-    }
- 
+  
+  Recipes.associate = (models) => {
+    Recipes.belongsTo(models.User, {
+      foreignKey: 'userId',
+    });
+    Recipes.hasMany(models.Review, {
+      foreignKey: 'recipeId',
+    });
+    Recipes.hasMany(models.Favorite, {
+      foreignKey: 'recipeId',
+    });
+    Recipes.hasMany(models.Vote, {
+      foreignKey: 'recipeId',
+    });
+  };
+
   return Recipes;
 };

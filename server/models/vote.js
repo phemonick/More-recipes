@@ -2,21 +2,12 @@ export default (sequelize, DataTypes) => {
   const Vote = sequelize.define('Vote', {
     recipeId: {
       type: DataTypes.INTEGER,
-      onDelete: 'CASCADE',
-      references: {
-        model: 'Recipes',
-        key: 'id',
-        as: 'recipeId',
-      },
+      allowNull: false,
     },
 
     userId: {
       type: DataTypes.INTEGER,
-      references: {
-        model: 'Users',
-        key: 'id',
-        as: 'userId',
-      },
+      allowNull: false,
     },
     options: {
       type: DataTypes.BOOLEAN,

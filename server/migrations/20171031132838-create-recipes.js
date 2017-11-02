@@ -20,6 +20,12 @@ module.exports = {
       viewCount: {
         type: Sequelize.INTEGER
       },
+      upVote: {
+        type: Sequelize.INTEGER
+      },
+      downVote: {
+        type: Sequelize.INTEGER
+      },
       userId: {
         type: Sequelize.INTEGER
       },
