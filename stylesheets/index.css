@@ -2,18 +2,11 @@
 	margin: 0;
 	padding: 0;
 }
-body{
-	width: 100%;
-	height: 100%;
-    font-family: 'Ubuntu', sans-serif;
-	font-family: 'Ubuntu Mono', monospace;
-/*	background-image: url('../images/beansB.jpg');*/
 
-}
 nav {
 	width: 100%;
 	height: 50px;
-	background-color: #ab8667;
+	background-color: #c49413;
 
 }
 nav h1{
@@ -21,6 +14,111 @@ nav h1{
 	padding: 10px;
    
 }
+
+
+body
+{
+	margin: 0;
+	padding: 0;
+	/*background: url(../images/loginB.jpg);
+	width: 100%;
+	background-size: cover;
+	background-repeat: no-repeat;*/
+	height: auto;
+}
+.coverContainer{
+	display: flex;
+    min-height: 100vh;
+}  
+.coverImg{
+	width: 100%;
+}
+
+.loginBox{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 60vw;
+	height: 420px;
+	padding: 80px 40px;
+	box-sizing: border-box;
+	background: rgba(0,0,0,.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    
+    
+	
+}
+
+.loginBox h2{
+	margin: 0;
+	color:#c49413;
+	text-align: center;
+    font-size: 30px;
+    padding: 20px 0 0 0;
+}
+.loginBox p{
+   
+	margin: 0;
+	padding: 0;
+	font-weight: bold;
+    font-size: 20px;
+	color: #fff;
+     padding-top: 20px;
+    font-size: 20px;
+}
+.loginBox button{
+	width: 40%;
+/*	margin: 30px 0 0 0px;*/
+}
+.btn{
+    margin: 20px 0 0 10px;
+   align-text: center;
+}
+.loginBox .loginBtn,
+.loginBox .loginBtn2{
+	border: none;
+	border-bottom: 1px solid #81e60b;
+background: #b49d2a;
+	/*outline removes border;*/
+	outline: none;
+	font-size: 16px;
+	color: #fff;
+	height: 40px;
+
+}
+::placeholder{
+	color: rgba(255,255,255,.5)
+}
+.loginBox input[type="submit"]{
+	border:none;
+	outline: none;
+	height: 40px;
+	color: #fff;
+	font-size: 16px;
+	background-color: coral;
+	cursor: pointer;
+	border-radius: 20px;
+}
+.loginBox input[type="submit"]::placeholder{
+   
+}
+.loginBox input[type="submit"]:hover{
+	background-color: burlywood;
+	color:#fff;
+}
+.loginBox a{
+	color: #fff;
+	font-size: 20px;
+	font-weight: bold;
+	
+}
+
+
+
+/*
 .headc{
     color: #985c11;
 }
@@ -56,7 +154,7 @@ nav h1{
         color: #de6a01;
         border-radius: 5px;
 		outline: none;
-/*		border: 1px solid #7d9c72;*/
+		border: 1px solid #7d9c72;
 	}
 .loginBtn{
     border: 1px solid #7d9c72;
@@ -70,4 +168,4 @@ nav h1{
 }
 .coverImg{
    height: 39vh
-}
+}*/

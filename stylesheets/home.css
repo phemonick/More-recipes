@@ -9,13 +9,13 @@ body{
 	/*display: flex;
 	flex-direction: column;*/
 	box-sizing: border-box;
-    color:#0a91c7;
+    color:#382c20;;
 	/*min-height: 100vh;*/
 }
  
 a{
 	text-decoration: none;
-    color: #f0d495;
+    color:#fff;
 }
 ul{
 	margin: 0;
@@ -40,7 +40,7 @@ ul{
 header{
 	
 	width: 100%;
-	background: #daa271;
+	background: #c49413;
 	
 }
 	#topHeader{
@@ -53,14 +53,14 @@ header{
 		margin: 10px 15px 0 0;
 		padding: 4px;
 		color: yellow;
-		background: #0a91c7;
+		background: #c49413;
 		border: none;
 		outline: none;
 	}
 header nav{
 	width: 100%;
 	height: auto;
-	background: rgba(128, 128, 128, 0.7);
+	background: #c49413;
 }
 .recipeBackground{
 	background: url(../images/recipes/spice.jpg) no-repeat;
