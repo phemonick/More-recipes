@@ -8,13 +8,14 @@ body{
 	height: 100%;
     font-family: 'Ubuntu', sans-serif;
 	font-family: 'Ubuntu Mono', monospace;
+    color: #382c20;
 /*	background-image: url('../images/beansB.jpg');*/
 
 }
 .mainHeader {
 	width: 100%;
 	height: auto;
-	background-color: rgb(128, 128, 128);
+	background-color: #c49413;
 }
 	.mainNav {  
 		display: flex;
@@ -38,6 +39,7 @@ body{
 		text-decoration: none;
 		display: block;
 			padding: 10px 15px;
+        color: #fff;
 	}
 
 section {
